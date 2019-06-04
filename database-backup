@@ -1,0 +1,17 @@
+#!/bin/sh
+
+BACKUP_FOLDER="/opt/mysql/backup"
+DATE=$(date "+%d")
+
+GZIP="$(which gzip)"
+MYSQLDUMP="$(which mysqldump)"
+
+HOST=$HOST
+DATABASE=$DATABASE
+PASSWORD=$PASSWORD
+USER="root"
+
+[ ! -d "$BACKUP_FOLDER" ] && mkdir -p "$BACKUP_FOLDER"
+
+FILE=$BACKUP_FOLDER/backup-$DATE.sql.gz
+$MYSQLDUMP -h $HOST -u $USER -p $PASSWORD $DATABASE | $GZIP -9 > $FILE
