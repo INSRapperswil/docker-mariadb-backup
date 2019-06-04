@@ -1,6 +1,5 @@
 FROM alpine:3.7
-
-LABEL maintainer="Julian Klaiber <julian.klaiber@ins.hsr.ch>"
+Maintainer Julian Klaiber <julian.klaiber@ins.hsr.ch>
 
 COPY database-backup /etc/periodic/daily
 
